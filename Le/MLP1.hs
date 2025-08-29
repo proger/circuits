@@ -13,14 +13,6 @@ gemm (a:as) bs = gemv a bs 0 : gemm as bs
 relu [] = []
 relu (x:xs) = max 0 x : relu xs
 
-fexp [] = []
-fexp (x:xs) = exp x : fexp xs
-
-smaxf xs = map (/z) n
-  where
-    n = map exp xs
-    z = sum n
-
 sadd (ml,dl) (mr,dr) = (m, dl * exp (ml - m) + dr * exp (mr - m))
   where m = max ml mr
 
